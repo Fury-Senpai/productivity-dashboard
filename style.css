@@ -38,8 +38,8 @@
     width: 100%
 }
 html{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 main{
@@ -64,16 +64,18 @@ main{
 /* ALL ELEMENTS */
 /*  */
 section.all-elements{
-    /* height: 100%; */
+    max-height: max-content;
+    min-height: 100%;
     width: 100%;
     padding: 40px;
     padding-top: 80px;
     /* background-color: var(--secondary-color); */
-    
+    background-color: black;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
+    position: absolute;
 }
 
 /* ELEMENTS */
@@ -88,7 +90,9 @@ section.all-elements{
     object-fit: cover;
     position: relative;
     overflow: hidden;
-    transition: all ease 0.5s;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--secondary-color);
 }
 
 .elem>img{
@@ -111,9 +115,33 @@ section.all-elements{
     transform: scale(0.97);
 }
 
+/*  */
+/* Full Elem */
+/*  */
 .fullElem{
-    height: 100%;
+    
+    min-height: 100%;
     width: 100%;
     padding: 20px;
     font-size: 2rem;
+    display: none;
+    position: absolute;
+    background-color: black;
+}
+
+/* back */
+.back{
+    position: absolute;
+    right: 4%;
+    background-color: #fb3e3e;
+    border-radius: 5px;
+    padding: 10px 11px;
+    color: var(--primary-txt-color);
+    font-size: 1.3rem;
+    transition: all ease 0.2s;
+    cursor: pointer;
+}
+
+.back:active{
+    transform: scale(0.97);
 }
