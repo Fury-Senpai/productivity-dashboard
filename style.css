@@ -16,16 +16,21 @@
     --primary-txt-color : #F2EEE8;
 
     --secondary-color : #F2EEE8;
-    --seondary-txt-color : #f38794;
+    --seondary-txt-color : #fa6678;
 
     --tertiary1-color : #9DAD71;
     --tertiary1-txt-color : #2d321d;
+
+    --tertiary2-color : #F4E3B2;
+    --tertiary2-txt-color : #80050A;
 
 }
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: regular;
+  color: var(--seondary-txt-color);
 }
  html ,
  body {
@@ -43,3 +48,65 @@ main{
     height: 100%;
 }
 
+/*  */
+/* NAVBAR */
+/*  */
+
+#nav{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--tertiary1-color);
+    z-index: 10;
+}
+
+/*  */
+/* ALL ELEMENTS */
+/*  */
+section.all-elements{
+    /* height: 100%; */
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* ELEMENTS */
+
+.elem{
+    background-color: var(--tertiary2-color);
+    color: var(--tertiary2-txt-color);
+    height: 430px;
+    width: 330px;
+    border-radius: 20px;
+    font-size: 30px;
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.5s;
+}
+
+.elem>img{
+    height: 100%;
+    width: 100%;
+}
+
+.elem>h2{
+    font-size: 1.5rem;
+    font-weight: lighter;
+    position: absolute;
+    bottom: 4%;
+    right: 5%;
+    color: #F2EEE8;
+    /* color: transparent; */
+    -webkit-text-stroke-color: #bababa;
+    -webkit-text-stroke-width: 1px;
+}
+
+.elem:active{
+    transform: scale(0.97);
+}
