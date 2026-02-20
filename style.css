@@ -18,13 +18,29 @@
     --secondary-color : #F2EEE8;
     --seondary-txt-color : #fa6678;
 
-    --tertiary1-color : #9DAD71;
+    --tertiary1-color : #80934e;
     --tertiary1-txt-color : #2d321d;
 
     --tertiary2-color : #F4E3B2;
     --tertiary2-txt-color : #80050A;
 
 }
+
+@property --rotate{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes borderAnimate{
+    from{
+        --rotate : 0deg
+    }
+    to{
+        --rotate : 360deg
+    }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -121,9 +137,9 @@ section.all-elements{
 .fullElem{
     
     min-height: 100%;
+    height: 100%;
     width: 100%;
-    padding: 20px;
-    font-size: 2rem;
+    padding: 30px;
     display: none;
     position: absolute;
     background-color: black;
@@ -133,15 +149,198 @@ section.all-elements{
 .back{
     position: absolute;
     right: 4%;
-    background-color: #fb3e3e;
+    background-color: var(--tertiary1-txt-color);
     border-radius: 5px;
     padding: 10px 11px;
-    color: var(--primary-txt-color);
+    color: var(--tertiary1-color);
+    outline: none;
+    border: none;
     font-size: 1.3rem;
     transition: all ease 0.2s;
     cursor: pointer;
+    box-shadow: 0 0 10px;
+    
 }
 
 .back:active{
-    transform: scale(0.97);
+    transform: scale(0.87);
+}
+
+/* Todo Container  */
+
+.todo-page{
+    display: block;
+}
+
+.heading-wrapper{
+    display: flex;
+    align-items: center;
+}
+.todo-page .heading-wrapper > h2{
+    color: var(--tertiary1-color);
+    font-family: bold;
+    font-size: 3rem ;
+}
+.todo-page .todo-container{
+    width: 100%;
+    height: 80%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.todo-page .todo-container .add-task{
+    height: 100%;
+    width: 33%;
+    background-color: var(--tertiary1-color);
+    border-radius: 20px;
+}
+
+.todo-page .todo-container .add-task form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+    height: 100%;
+}
+
+.todo-container .add-task form input , .todo-container .add-task form textarea , .todo-container .add-task form button{
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 25px;
+    background-color: var(--tertiary1-txt-color);
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    /* margin-bottom: 20px; */
+}
+
+.todo-container .add-task form textarea{
+    height: 100%;
+    resize: none;
+
+    &::-webkit-scrollbar{
+        background-color: transparent;
+        width: 0;
+    }
+}
+.todo-container .add-task form button{
+    color: var(--tertiary2-txt-color);
+    background-color: var(--tertiary2-color);
+    font-family: bold;
+    transition: all ease 0.5s;
+    &:active{
+        transform: scale(0.97);
+    }
+}
+
+/* All Task Element */
+.todo-page .todo-container .all-task{
+    height: 100%;
+    width: 65%;
+    background-color: var(--tertiary1-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    overflow: auto;
+
+    &::-webkit-scrollbar{
+        background-color: transparent;
+        width: 0px;   
+    }
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--tertiary1-txt-color);
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.task h5{
+    /* color: var(--tertiary1-color); */
+    color: #9ac893;
+    font-size: 1.5rem;
+    letter-spacing: 1.2px;
+}
+
+.task .btn-wrapper button{
+    background-color: var(--tertiary2-color);
+    color: var(--tertiary2-txt-color);
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all ease 0.5s;
+    width: 10rem;
+    &:active{
+        transform: scale(0.97);
+    }
+}
+
+.task .btn-wrapper :nth-child(2){
+    background-color: var(--seondary-txt-color);
+    color: var(--secondary-color);
+    font: bold;
+    border: none;
+}
+
+.task-completed{
+    background-color: lightgreen !important; 
+}
+
+.task-strikethrough{
+    text-decoration: line-through;
+    text-decoration-thickness: 5px;
+    text-decoration-color: var(--seondary-txt-color);
+}
+
+.form-checkbox-wrapper{
+    width: 100%;
+    display: flex;
+}
+
+.form-checkbox-wrapper > label {
+    width: 80%;
+    font-size: 1.2rem;
+    color: var(--tertiary1-txt-color);
+    font-family: bold;
+}
+
+.imp-task{
+    background: linear-gradient(var(--tertiary1-txt-color)) padding-box,
+                conic-gradient(from var(--rotate) , var(--tertiary1-txt-color)  , var(--tertiary1-txt-color) ,var(--tertiary1-txt-color) , #ff0000 ,#ff6600c6 , rgb(0, 255, 64), var(--tertiary1-txt-color)) border-box;
+    border: 0px solid #ff007300;
+    animation: borderAnimate 3s linear infinite;
+    transition-property: all;
+    animation-play-state: running;
+    border-width: 3px;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    color: #ff0073;
+}
+
+.h5-sup{
+    background-color: var(--seondary-txt-color);
+    text-align: center;
+    color: var(--secondary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-family: bold;
+}
+
+.h5-invisible{
+    width: 45px;
+    height: 26px;
+    border-radius: 20px;
+    margin-right: 10px;
+    background-color: #ff0000;
 }
