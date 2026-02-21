@@ -327,6 +327,10 @@ section.all-elements{
     color: #ff0073;
 }
 
+.res-heading-wrapper{
+    display: flex;
+    gap: 10px;
+}
 .h5-sup{
     background-color: var(--seondary-txt-color);
     text-align: center;
@@ -335,12 +339,4 @@ section.all-elements{
     border-radius: 20px;
     margin-right: 10px;
     font-family: bold;
-}
-
-.h5-invisible{
-    width: 45px;
-    height: 26px;
-    border-radius: 20px;
-    margin-right: 10px;
-    background-color: #ff0000;
 }
