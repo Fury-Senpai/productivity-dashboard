@@ -1,0 +1,113 @@
+@font-face {
+    font-family: light;
+    src: url(../fonts/Aeonik-Light.ttf);
+}
+@font-face {
+    font-family: bold;
+    src: url(../fonts/Aeonik-Bold.ttf);
+}
+@font-face {
+    font-family: regular;
+    src: url(../fonts/Aeonik-Regular.ttf); 
+}
+:root{
+    --primary-color : #E38792;
+    --primary-txt-color : #F2EEE8;
+
+    --secondary-color : #F2EEE8;
+    --seondary-txt-color : #fa6678;
+
+    --tertiary1-color : #80934e;
+    --tertiary1-txt-color : #2d321d;
+
+    --tertiary2-color : #F4E3B2;
+    --tertiary2-txt-color : #80050A;
+
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: regular;
+  color: var(--seondary-txt-color);
+}
+ html ,
+ body {
+    height: 100%;
+    width: 100%
+}
+html{
+    background-color: white;
+    color: black;
+}
+
+main{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.res{
+    min-height: 60% ;
+    width: 50%;
+    
+    background: #fafaa0;
+    /* background-color: #b7a542; */
+    border-radius: 20px;
+    position: relative;
+    padding: 20px;
+}
+/*  */
+.clip-svg{
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    top: -10%;
+    transform: translateX(-50%);
+}
+.notebook-svg{
+    position: absolute;
+    width: 50px;
+}
+.scribble-svg{
+    position: absolute;
+    width: 100px;
+    right: 10%;
+    top: 70%;
+    rotate: 180deg;
+}
+.bulb-svg{
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    bottom: 35%;
+    transform: translateX(-50%);
+    transform: translateY(50%);
+}
+/*  */
+.title{
+    width: 100%;
+    border-bottom: 3px solid var(--tertiary2-txt-color);
+    margin-top: 50px;
+}
+
+.title > h2{
+    font-size: 2rem;
+}
+
+.desc{
+    margin-top: 10px;
+}
+.desc p {
+    position: relative;
+    text-align: justify;
+    z-index: 10;
+    font-size: 1.5rem;
+    
+    color: brown;
+}

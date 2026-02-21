@@ -1,14 +1,14 @@
 @font-face {
     font-family: light;
-    src: url(./fonts/Aeonik-Light.ttf);
+    src: url(../fonts/Aeonik-Light.ttf);
 }
 @font-face {
     font-family: bold;
-    src: url(./fonts/Aeonik-Bold.ttf);
+    src: url(../fonts/Aeonik-Bold.ttf);
 }
 @font-face {
     font-family: regular;
-    src: url(./fonts/Aeonik-Regular.ttf); 
+    src: url(../fonts/Aeonik-Regular.ttf); 
 }
 
 :root{
@@ -339,4 +339,9 @@ section.all-elements{
     border-radius: 20px;
     margin-right: 10px;
     font-family: bold;
+}
+
+.task-title:hover{
+    cursor: pointer;
+    color: #f5f913;
 }
