@@ -168,15 +168,13 @@ section.all-elements{
 
 /* Todo Container  */
 
-.daily-planner-page{
-    display: block;
-}
 .heading-wrapper{
     display: flex;
     align-items: center;
 }
 .todo-page .heading-wrapper > h2,
-.daily-planner-page .heading-wrapper > h2{
+.daily-planner-page .heading-wrapper > h2 ,
+.quotes-page .heading-wrapper > h2{
     color: var(--tertiary1-color);
     font-family: bold;
     font-size: 3rem ;
@@ -406,16 +404,14 @@ section.all-elements{
     border: none;
 }
 
-/* .daily-planner-page .day-planner .day-planner-scheduler button{
-    background-color: var(--tertiary2-color);
-    color: var(--tertiary2-txt-color);
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all ease 0.5s;
-    width: 10rem;
-    &:active{
-        transform: scale(0.97);
-    }
-} */
+/*  */
+/* Motivational Page */
+/*  */
+
+.quotes-page{
+    display: block;
+}
+
+.quotes-page .quotes-container{
+    
+}
