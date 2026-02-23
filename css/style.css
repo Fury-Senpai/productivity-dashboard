@@ -91,7 +91,7 @@ section.all-elements{
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
-    position: absolute;
+    position: absolute; 
 }
 
 /* ELEMENTS */
@@ -168,10 +168,9 @@ section.all-elements{
 
 /* Todo Container  */
 
-.todo-page{
+.daily-planner-page{
     display: block;
 }
-
 .heading-wrapper{
     display: flex;
     align-items: center;
