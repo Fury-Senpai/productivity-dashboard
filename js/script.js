@@ -269,3 +269,100 @@ function todoPageLogic() {
 todoPageLogic()
 
 
+
+
+function dailyPlanner(){
+    let completedTaskList = JSON.parse(localStorage.getItem('completedTaskList')) || {}
+
+    let dailyGoalsData =  JSON.parse(localStorage.getItem('dailyGoalsData')) || {};
+
+    const dayPlanner = document.querySelector('.day-planner');
+
+    let hours = Array.from({length : 24} , function(elem , idx){
+        const start = idx;
+        const end = (idx + 1) % 24;
+        return `${String(start).padStart(2,'0')}:00 - ${String(end).padStart(2,'0')}:00`
+    })
+
+    let wholeDaySum = '';
+
+    hours.forEach((hrs , idx) => {
+        let savedTaskData = dailyGoalsData[idx] || '';
+        wholeDaySum += `<div class="day-planner-scheduler">
+                            <p>${hrs}</p>
+                            <input type="text" id="${idx}" placeholder="..." value="${savedTaskData}">
+                            <button class="completed-task-btn" id="${idx}">
+                                Complete
+                            </button>
+                        </div>`
+        
+
+    });
+
+    dayPlanner.innerHTML = wholeDaySum;
+    // Restore completed state after rendering
+    const schedulers = document.querySelectorAll('.day-planner-scheduler');
+
+    schedulers.forEach(scheduler => {
+        const input = scheduler.querySelector('input');
+        const button = scheduler.querySelector('.completed-task-btn');
+
+        const {id} = input;
+
+        if (completedTaskList[id]) {
+            input.classList.add('task-strikethrough');
+            button.textContent = 'Completed';
+        }
+    });
+
+    
+    let dailyInputs = document.querySelectorAll('.day-planner input');
+    
+    dailyInputs.forEach((input , idx) => {
+        input.addEventListener('input' , (e)=>{
+            input.classList.remove('task-strikethrough');
+            const scheduler = schedulers[idx];
+            const button = scheduler.querySelector('.completed-task-btn');
+            button.textContent = 'Complete'
+
+            completedTaskList[idx] = false;
+            localStorage.setItem('completedTaskList', JSON.stringify(completedTaskList));
+            
+            dailyGoalsData[input.id] = input.value.trim('')
+            localStorage.setItem('dailyGoalsData',JSON.stringify(dailyGoalsData))
+        })
+    });
+    
+    // // complete btn logic
+    
+    // let completedTaskList = {}
+    // localStorage.removeItem('completedTaskList')
+    dayPlanner.addEventListener('click', (e) => {
+        const btn = e.target.closest('.completed-task-btn');
+        if (!btn) return;
+
+        const planner = btn.closest('.day-planner-scheduler');
+        const input = planner.querySelector('input');
+        const {id} = input;
+
+        if (!input.value.trim()) return;
+
+        // toggle state
+        const isCompleted = completedTaskList[id] === true;
+        console.log(completedTaskList);
+        completedTaskList[id] = !isCompleted;
+
+        // update UI
+        input.classList.toggle('task-strikethrough', !isCompleted);
+        btn.textContent = isCompleted ? 'Complete' : 'Completed';
+
+        // save
+        localStorage.setItem('completedTaskList', JSON.stringify(completedTaskList));
+
+        
+    });
+
+    
+}
+
+dailyPlanner();
