@@ -175,7 +175,8 @@ section.all-elements{
     display: flex;
     align-items: center;
 }
-.todo-page .heading-wrapper > h2{
+.todo-page .heading-wrapper > h2,
+.daily-planner-page .heading-wrapper > h2{
     color: var(--tertiary1-color);
     font-family: bold;
     font-size: 3rem ;
@@ -343,4 +344,56 @@ section.all-elements{
 .task-title:hover{
     cursor: pointer;
     color: #f5f913;
+}
+
+/*  */
+/* Daily Planner Page */
+/*  */
+
+.daily-planner-page{
+    padding: 30px;
+}
+
+.daily-planner-page .day-planner{
+    background-color: var(--tertiary1-color);
+    height: 85%;
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2%;
+    overflow: auto;
+}
+
+.daily-planner-page .day-planner::-webkit-scrollbar{
+    width: 0;
+
+}
+
+.daily-planner-page .day-planner .day-planner-scheduler{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 10px;
+    
+}
+
+.daily-planner-page .day-planner .day-planner-scheduler p{
+    color: var(--secondary-color);
+    position: absolute;
+    top: 10%;
+    left: 0.5%;
+    font-size: 1.2rem;
+}
+.daily-planner-page .day-planner .day-planner-scheduler input{
+    padding: 20px 60px;
+    width: 100%;
+    background-color: var(--tertiary1-txt-color);
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.5rem;
 }
